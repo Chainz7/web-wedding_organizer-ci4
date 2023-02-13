@@ -29,7 +29,14 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('home', 'Home::index');
+$routes->get('create-db', function () {
+    $forge = \Config\Database::forge();
+    if ($forge->createDatabase('app_wedding_organizer_ci4')) {
+        echo 'Database created!';
+    }
+});
+
+$routes->get('/', 'Home::index');
 
 $routes->get('acara', 'Acara::index');
 
