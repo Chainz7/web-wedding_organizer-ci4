@@ -39,6 +39,8 @@ $routes->get('create-db', function () {
 $routes->get('/', 'Home::index');
 
 $routes->get('acara', 'Acara::index');
+$routes->get('acara/add', 'Acara::create');
+$routes->post('acara', 'Acara::store');
 
 /*
  * --------------------------------------------------------------------
